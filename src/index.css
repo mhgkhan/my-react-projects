@@ -1,13 +1,136 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+header,
+footer {
+  /* width: ; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 15px;
+  background-color: #d81fbadf;
+}
+header {
+  position: sticky;
+  top: 0px;
+}
+
+footer p {
+  text-align: center;
+  color: white;
+  margin: 8px auto;
+}
+
+header .logo h1 {
+  font-size: 3rem;
+}
+
+header ul li {
+  list-style-type: none;
+  float: left;
+  margin: 0px 12px;
+}
+header ul li a {
+  color: white;
+  text-decoration: none;
+  text-shadow: 1px 0px 3px white;
+}
+
+button {
+  width: auto;
+  padding: 4px 10px;
+  background: black;
+  color: white;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.todolist {
+  width: 80%;
+  margin: 1rem auto;
+  /* border: 1px solid red; */
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 1px 3px 12px #e3e1e1;
+}
+.todolist form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem auto;
+}
+.todolist form input {
+  width: 93%;
+  padding: 4px 8px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  border: 1px solid black;
+  outline: none;
+}
+
+.todolist .todos {
+  width: 100%;
+}
+.todolist .todos h2 {
+  color: #d81fbadf;
+  margin: 0.8rem 15px;
+}
+
+.todolist table {
+  width: 100%;
+}
+
+.todolist table tr td {
+  text-align: center;
+}
+table tbody tr * {
+  width: 10%;
+  padding: 6px 0px;
+  /* border: 1px solid red; */
+}
+.todolist table tr td:first-child {
+  width: 50px;
+}
+.todolist table tr td:nth-child(2) {
+  width: 70%;
+}
+.todolist table tr td:nth-child(3) {
+  font-size: 1.1rem;
+  background: #636b85;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.todolist table tr td:nth-child(4) {
+  background: #9c0303;
+  color: white;
+  cursor: pointer;
+}
+
+tbody h3 {
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 500px) {
+  .todolist {
+    width: 98% !important;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  header button {
+    display: none;
+  }
 }
