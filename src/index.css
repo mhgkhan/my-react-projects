@@ -64,6 +64,8 @@ button {
   border-radius: 5px;
   padding: 20px;
   box-shadow: 1px 3px 12px #e3e1e1;
+  min-height:80vh;
+  max-height:auto;
 }
 .todolist form {
   width: 100%;
