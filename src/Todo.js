@@ -41,18 +41,10 @@ const Todo = () => {
 
        const adTodo = e => {
         e.preventDefault();
-        const checInTodos = todos && todos.map(todo=>todo.item === value)
-        if(checInTodos.includes(true)){
-            alert("This value is already exists")
-            fetchTodosFromLS();
-            setValue("")
-        }
-        else{
         setTodos(todos.push({ item: value }));
         // console.log(todos);
         localStorage.setItem("todos", JSON.stringify(todos))
         setValue("")
-        }
         
     }
 
