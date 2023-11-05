@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react'
 
 
 const Todo = () => {
+    document.title = "TODO LIST"
 
     const [value, setValue] = useState("");
     const [todos, setTodos] = useState(null)
@@ -28,24 +29,25 @@ const Todo = () => {
         fetchTodosFromLS();
     }, [])
 
+    // console.log(todos)
 
-    // const adTodo = e => {
-    //     e.preventDefault();
-
-    //     setTodos(todos.push({ item: value }));
-    //     // console.log(todos);
-    //     localStorage.setItem("todos", JSON.stringify(todos))
-    //     fetchTodosFromLS();
-    //     setValue("")
-    // }
-
-       const adTodo = e => {
+    const adTodo = e => {
         e.preventDefault();
-        setTodos(todos.push({ item: value }));
-        // console.log(todos);
-        localStorage.setItem("todos", JSON.stringify(todos))
-        setValue("")
-        
+        let prevTodos = todos
+        const checInTodos = prevTodos.map(todo => todo.item === value)
+        if (checInTodos.includes(true)) {
+            alert("This value is already exists")
+            fetchTodosFromLS();
+            setValue("")
+        }
+        else {
+            prevTodos.push({ item: value })
+            setTodos(prevTodos);
+            // console.log(todos);
+            localStorage.setItem("todos", JSON.stringify(todos))
+            setValue("")
+        }
+
     }
 
     const delItem = e => {
@@ -69,8 +71,12 @@ const Todo = () => {
         }
     }
 
+
+
+
     return (
         <div className='todolist'>
+            <h1>TODO LIST </h1>
             <form action="#" onSubmit={adTodo}>
                 <input type="text" name='todo' id='todoinput' minLength={5} placeholder='Enter data ' required onChange={(e) => setValue(e.target.value)} value={value} />
                 <button type='submit'> ADD </button>
