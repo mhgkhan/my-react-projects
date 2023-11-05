@@ -38,14 +38,15 @@ const Todo = () => {
         if (checInTodos.includes(true)) {
             alert("This value is already exists")
             fetchTodosFromLS();
-            setValue("")
+            setValue("");
+            // ok 
         }
         else {
             prevTodos.push({ item: value })
             setTodos(prevTodos);
             // console.log(todos);
             localStorage.setItem("todos", JSON.stringify(todos))
-            setValue("")
+            setValue("");
         }
 
     }
